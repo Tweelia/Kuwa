@@ -1,6 +1,6 @@
 (function($){
 
-  "use strict"; 
+  "use strict";
 
   $(window).on('load', function() {
 
@@ -31,8 +31,8 @@
     $.stellar('refresh');
     megaMenu();
     megaMenuWide();
-    squareDiv();    
-    
+    squareDiv();
+
     if (minWidth(992)) {
       $('.navigation').removeClass('sticky');
       $('.local-scroll.desktop-offset-0').localScroll({offset: {top: -60},duration: 1500,easing:'easeInOutExpo'});
@@ -43,7 +43,7 @@
     }
 
   });
-  
+
 
   /* Detect Browser Size
   -------------------------------------------------------*/
@@ -105,7 +105,7 @@
     }
 
   });
-  
+
 
   /* Onepage Nav
   -------------------------------------------------------*/
@@ -126,12 +126,12 @@
     $('#nav-icon, #nav-overlay').toggleClass('open');
     $('body').toggleClass('fs-open');
 
-    $(function(){   
+    $(function(){
       var delay = 0
       $('.overlay-menu > ul > li').each(function(){
         $(this).css({animationDelay: delay+'s'})
         delay += 0.1
-      }) 
+      })
     })
   });
 
@@ -143,7 +143,7 @@
 
   $("#nav-icon-trigger, #sidenav-close").on('click', function(e) {
     e.preventDefault();
-    e.stopPropagation();    
+    e.stopPropagation();
 
     $sidenav.toggleClass('opened');
     $mainWrapper.toggleClass('sidenav-opened');
@@ -151,7 +151,7 @@
 
   $mainWrapper.on('click',function() {
     $(this).removeClass('sidenav-opened');
-    $sidenav.removeClass('opened');    
+    $sidenav.removeClass('opened');
   });
 
 
@@ -192,7 +192,7 @@
     $searchWrap.fadeOut(200);
     $navSearch.add($searchClose).removeClass("open");
   }
-    
+
   $(document.body).on('click',function(e) {
     closeSearch();
   });
@@ -254,7 +254,7 @@
         formatter: function (value, options) {
           return value.toFixed(options.decimals);
         }
-      });      
+      });
     });
   }
 
@@ -275,7 +275,7 @@
       /* Testimonials
       -------------------------------------------------------*/
 
-      $("#owl-testimonials").owlCarousel({      
+      $("#owl-testimonials").owlCarousel({
         navigation: false,
         navigationText: ["<i class='icon-Left-2'></i>", "<i class='icon-Right-2'></i>"],
         autoHeight: true,
@@ -283,22 +283,22 @@
         pagination: true,
         paginationSpeed: 400,
         singleItem: true,
-        stopOnHover: true      
+        stopOnHover: true
       })
 
       // 2 Boxes
-      $("#owl-testimonials-boxes-2").owlCarousel({      
+      $("#owl-testimonials-boxes-2").owlCarousel({
         navigation: false,
         slideSpeed: 300,
         pagination: true,
         paginationSpeed: 400,
         stopOnHover: true,
         itemsCustom: [
-          [0, 1],      
+          [0, 1],
           [450, 1],
           [700, 2],
           [1200, 2]
-        ],      
+        ],
       })
 
 
@@ -360,7 +360,7 @@
       $(".prev").on('click',function(){
           owl3ItemsArrows.trigger('owl.prev');
       });
-      
+
 
       /* Shop Items Slider
       -------------------------------------------------------*/
@@ -383,7 +383,7 @@
       /* Single Image
       -------------------------------------------------------*/
 
-      $("#owl-single").owlCarousel({     
+      $("#owl-single").owlCarousel({
         navigation: false,
         pagination: true,
         slideSpeed: 300,
@@ -440,7 +440,7 @@
   } else {
     var dataSlideDots = false;
   }
-  
+
 
   // Featured Works
   $('#works-slider').flickity({
@@ -583,7 +583,7 @@
           item.type = 'image';
         }
       }
-    },    
+    },
     type: 'image',
     closeBtnInside:false,
     gallery:{
@@ -654,7 +654,7 @@
       backDelay: 1500,
       loop: true
     });
-  });  
+  });
 
 
   /* Progress Bars
@@ -666,13 +666,13 @@
         var $this = $(this),
         bar = $this.find('.progress-bar'),
         barWidth = bar.attr('aria-valuenow');
-        setTimeout(function() {              
+        setTimeout(function() {
           bar.css({"width": barWidth + '%'});
         }, index * 200);
       });
     };
     loadDaBars();
-    
+
   });
 
 
@@ -703,7 +703,7 @@
     });
   });
 
-  
+
   /* Accordion
   -------------------------------------------------------*/
   function toggleChevron(e) {
@@ -719,7 +719,7 @@
   /* Toggle
   -------------------------------------------------------*/
   var allToggles = $(".toggle > .panel-content").hide();
-  
+
   $(".toggle").on('click', '> .acc-panel > a', function(){
 
     if ($(this).hasClass("active")) {
@@ -732,8 +732,8 @@
       $(this).addClass("active");
       $(this).parent().next().slideDown("easeOutExpo");
     }
-    
-    return false;       
+
+    return false;
   });
 
 
@@ -778,7 +778,7 @@
   -------------------------------------------------------*/
 
   var $portfolio = $('#portfolio-grid');
-  $portfolio.imagesLoaded( function() {     
+  $portfolio.imagesLoaded( function() {
     $portfolio.isotope({
       isOriginLeft: true,
       stagger: 30
@@ -909,12 +909,12 @@
   }
 
   $('#list').on('click', function(e){
-    e.preventDefault(); 
+    e.preventDefault();
     get_list();
   });
 
   $('#grid').on('click', function(e){
-    e.preventDefault(); 
+    e.preventDefault();
     get_grid();
   });
 
@@ -923,13 +923,13 @@
   -------------------------------------------------------*/
   var Methods = $(".payment_methods > li > .payment_box").hide();
   Methods.first().slideDown("easeOutExpo");
-  
+
   $(".payment_methods > li > input").change(function(){
     var current = $(this).parent().children(".payment_box");
     Methods.not(current).slideUp("easeInExpo");
     $(this).parent().children(".payment_box").slideDown("easeOutExpo");
-    
-    return false;     
+
+    return false;
   });
 
 
@@ -973,7 +973,7 @@
     e.preventDefault();
 
     var $this = $(this);
-    
+
     $.ajax({
       type: "POST",
       url: 'contact.php',
@@ -1006,7 +1006,7 @@
           setTimeout( scrollPage, 50 );
         }
       }, false );
-    }    
+    }
   });
 
   function scrollToTop() {
@@ -1057,4 +1057,4 @@
 
 // $(".corner").on('click',function (){
 //   $("#customizer").toggleClass("s-open");
-// });
+// });"
